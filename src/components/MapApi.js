@@ -12,7 +12,11 @@ function MapApi() {
     const map = new kakao.maps.Map(container, options);
   }, []);
 
-  return <S.Map id="map"></S.Map>;
+  return (
+    <S.MapBox>
+      <S.Map id="map"></S.Map>
+    </S.MapBox>
+  );
 }
 
 export default MapApi;
