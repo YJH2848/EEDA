@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Map = styled.div`
-  width: 100%;
-  height: 500px;
+  width: 100vw;
+  height: 70vh;
 `;
 
 export const MapBox = styled.div`
