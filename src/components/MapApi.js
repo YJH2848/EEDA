@@ -16,16 +16,24 @@ function MapApi() {
       const m = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(el.lat, el.lng),
+        clickable: true,
       });
       console.log(el);
       //마커에 인포윈도우 표시
       const content = `<div>${el.title} </div>`;
+      //인포윈도우 닫기
+      const remove = true;
 
       const mLabel = new kakao.maps.InfoWindow({
         position: new kakao.maps.LatLng(el.lat, el.lng),
         content: content,
+        removable: remove,
       });
-      mLabel.open(map, m);
+      //마커를 클릭했을 때 이벤트
+      kakao.maps.event.addListener(m, "click", function () {
+        // 마커 위에 인포윈도우를 표시합니다
+        mLabel.open(map, m);
+      });
     });
   }, []);
 

@@ -6,7 +6,9 @@ function Header() {
       <S.SearchBar>
         <div>Logo</div>
         <S.Input></S.Input>
-        <div>Menu</div>
+        <S.Menu>
+          <img src="/img/Menu.png" width="40px" height="40px"></img>
+        </S.Menu>
       </S.SearchBar>
     </div>
   );
