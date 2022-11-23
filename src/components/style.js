@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
 export const Map = styled.div`
   width: 70vw;
   height: 70vh;
