@@ -3,7 +3,14 @@ import styled from "styled-components";
 export const Footer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+`;
+
+export const Logo = styled.div`
+  margin-left: 7vw;
+`;
+
+export const Img = styled.img`
+  margin-right: 7vw;
 `;
 
 export const Map = styled.div`

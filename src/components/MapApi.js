@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import * as S from "./style";
 import markerdata from "../MapData/data";
-import styled from "styled-components";
 const { kakao } = window;
 function MapApi() {
   //웹 페이즈를 로딩 시켰을때 가장 먼저 뜨는 지도 위치
   useEffect(() => {
     const container = document.getElementById("map");
     const options = {
-      center: new kakao.maps.LatLng(35.237908, 129.082157),
+      center: new kakao.maps.LatLng(
+        /*36.1795543, 128.0756416*/ 35.241141,
+        128.899906
+      ),
       level: 3,
     };
     //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들
@@ -20,18 +22,18 @@ function MapApi() {
         clickable: true,
       });
       console.log(el);
-      //마커에 인포윈도우 내용
+      //마커에 인포윈도우 내용 //인포윈도우에서 따로 파일 만드는법 몰라서 이렇게 함
       const content = `<div style="width:250px; height: 150px;">
-        <div style="width: 250px;height:30px;display:flex; align-items:center; justify-content: center; background-color:black; color:white;">
+        <div style="width: 250px;height:30px;display:flex; align-items:center; justify-content: center; background-color:black; color:white; font-family: 'Jua', sans-serif;">
           ${el.title}
         </div>
-        <div style="display:flex; justify-content: center;  width:250px; position: absolute; bottom:0px;">자세히보기</div>
+        <div style="display:flex; justify-content: center;  width:250px; position: absolute; bottom:0px; font-family: 'Jua', sans-serif;">자세히보기</div>
         <div style="display:flex;">
-
-        <img src="${el.img}" style="width:120px; height:80px;"/> 
-        여기는 설명
+        <img src="${el.img}" style="width:60px; height:auto"/> 
+        <div style="width:100%; display:flex; justify-content:center;">
+        <div style="font-family: 'Jua', sans-serif;">-쓰레기 종류-<br /><div style="display:flex; justify-content:center;">${el.kind}</div></div>
         </div>
-
+        </div>
       </div>`;
       //인포윈도우 닫기
       const remove = true;

@@ -11,7 +11,9 @@ function App() {
       <div>
         <Header />
         <MapApi />
-        <Footer />
+        <div>
+          <Footer />
+        </div>
       </div>
     </React.Fragment>
   );

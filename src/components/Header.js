@@ -4,10 +4,10 @@ function Header() {
   return (
     <div>
       <S.SearchBar>
-        <div>Logo</div>
+        <S.Logo>Logo</S.Logo>
         <S.Input></S.Input>
         <S.Menu>
-          <img src="/img/Menu.png" width="40px" height="40px"></img>
+          <S.Img src="/img/Menu.png" width="40px" height="40px"></S.Img>
         </S.Menu>
       </S.SearchBar>
     </div>
