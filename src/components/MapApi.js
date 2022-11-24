@@ -6,6 +6,7 @@ function MapApi() {
   //웹 페이즈를 로딩 시켰을때 가장 먼저 뜨는 지도 위치
   useEffect(() => {
     const container = document.getElementById("map");
+
     const options = {
       center: new kakao.maps.LatLng(
         /*36.1795543, 128.0756416*/ 35.241141,
@@ -13,26 +14,33 @@ function MapApi() {
       ),
       level: 3,
     };
+
     //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들
     const map = new kakao.maps.Map(container, options);
+
     markerdata.markerdata.map(el => {
       const m = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(el.lat, el.lng),
         clickable: true,
       });
-      console.log(el);
+
       //마커에 인포윈도우 내용 //인포윈도우에서 따로 파일 만드는법 몰라서 이렇게 함
-      const content = `<div style="width:250px; height: 150px;">
-        <div style="width: 250px;height:30px;display:flex; align-items:center; justify-content: center; background-color:black; color:white; font-family: 'Jua', sans-serif;">
+      const content = `<div style="width:400px; height: 200px;">
+        <div style="width: 400px;height:30px;display:flex; align-items:center; justify-content: center; background-color:black; color:white; font-family: 'Jua', sans-serif;">
           ${el.title}
         </div>
-        <div style="display:flex; justify-content: center;  width:250px; position: absolute; bottom:0px; font-family: 'Jua', sans-serif;">자세히보기</div>
+        
         <div style="display:flex;">
-        <img src="${el.img}" style="width:60px; height:auto"/> 
-        <div style="width:100%; display:flex; justify-content:center;">
-        <div style="font-family: 'Jua', sans-serif;">-쓰레기 종류-<br /><div style="display:flex; justify-content:center;">${el.kind}</div></div>
+        <img src="${el.img}" style="width:96px; height:auto"/> 
+        <div style="width:100%; display:flex; justify-content:center;align-items:center;">
+        <div style="font-family: 'Jua', sans-serif;">
+        <div style="display:flex; justify-content:center; ">쓰레기 종류 : ${el.kind}</div>
+        <div style="border:1px solid black; width:200px; height:100px">간략한 설명</div>
+        <div style="position:absolute; display:flex; justify-content:center;width:200px; bottom:0px;">자세히보기</div>
         </div>
+        </div>
+        
         </div>
       </div>`;
       //인포윈도우 닫기
@@ -42,12 +50,15 @@ function MapApi() {
         content: content,
         removable: remove,
       });
+
       //마커를 클릭했을 때 이벤트
       kakao.maps.event.addListener(m, "click", function () {
         // 마커 위에 인포윈도우를 표시합니다
         mLabel.open(map, m);
       });
     });
+
+    console.log("랜더링되었습니다");
   }, []);
 
   return (

@@ -1,22 +1,18 @@
 import styled from "styled-components";
 
-export const Footer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
 export const Logo = styled.div`
-  margin-left: 7vw;
+  margin-left: 12vw;
 `;
 
 export const Img = styled.img`
-  margin-right: 7vw;
+  margin-right: 12vw;
 `;
 
 export const Map = styled.div`
   width: 70vw;
   height: 70vh;
   border: 2px solid black;
+  border-radius: 100px;
 `;
 
 export const Menu = styled.div`
