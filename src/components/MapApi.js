@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import * as S from "./style";
 import markerdata from "../MapData/data";
+import "./MapCss.css";
+
 const { kakao } = window;
 function MapApi() {
   //웹 페이즈를 로딩 시켰을때 가장 먼저 뜨는 지도 위치
@@ -12,7 +14,7 @@ function MapApi() {
         /*36.1795543, 128.0756416*/ 35.241141,
         128.899906
       ),
-      level: 3,
+      level: 8,
     };
 
     //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들
@@ -26,23 +28,13 @@ function MapApi() {
       });
 
       //마커에 인포윈도우 내용 //인포윈도우에서 따로 파일 만드는법 몰라서 이렇게 함
-      const content = `<div style="width:400px; height: 200px;">
-        <div style="width: 400px;height:30px;display:flex; align-items:center; justify-content: center; background-color:black; color:white; font-family: 'Jua', sans-serif;">
-          ${el.title}
-        </div>
-        
-        <div style="display:flex;">
-        <img src="${el.img}" style="width:96px; height:auto"/> 
-        <div style="width:100%; display:flex; justify-content:center;align-items:center;">
-        <div style="font-family: 'Jua', sans-serif;">
-        <div style="display:flex; justify-content:center; ">쓰레기 종류 : ${el.kind}</div>
-        <div style="border:1px solid black; width:200px; height:100px">간략한 설명</div>
-        <div style="position:absolute; display:flex; justify-content:center;width:200px; bottom:0px;">자세히보기</div>
-        </div>
-        </div>
-        
-        </div>
-      </div>`;
+
+      const content = `
+      <div class="overay">
+      <div class="title">
+      ${el.title}</div>
+      </div>
+      `;
       //인포윈도우 닫기
       const remove = true;
       const mLabel = new kakao.maps.InfoWindow({
