@@ -14,13 +14,13 @@ function MapApi() {
         /*36.1795543, 128.0756416*/ 35.241141,
         128.899906
       ),
-      level: 8,
+
+      level: 3,
     };
 
     //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들
     const map = new kakao.maps.Map(container, options);
-
-    markerdata.markerdata.map(el => {
+    markerdata.markerdata.map((el) => {
       const m = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(el.lat, el.lng),
@@ -30,11 +30,23 @@ function MapApi() {
       //마커에 인포윈도우 내용 //인포윈도우에서 따로 파일 만드는법 몰라서 이렇게 함
 
       const content = `
-      <div class="overay">
-      <div class="title">
-      ${el.title}</div>
-      </div>
-      `;
+<div class="overlay_info">
+<div class="title">
+<a><strong>${el.title}</strong></a>
+</div>
+<div class="box">
+<img src="${el.img}"class="img">
+<div class="kind">
+<span class="address">쓰레기 종류 : ${el.kind}<div class="footer">
+자세히 보기
+</div></span>
+
+</div>
+
+</div>
+
+</div>
+`;
       //인포윈도우 닫기
       const remove = true;
       const mLabel = new kakao.maps.InfoWindow({

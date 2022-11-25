@@ -1,4 +1,54 @@
-.overay {
+.overlay_info {
+  float: left;
+  position: relative;
+  background-color: #fff;
+  height: 200px;
+  width: 350px;
+}
+.overlay_info:nth-of-type(n) {
+  border: 0;
+  box-shadow: 0px 1px 2px #888;
+}
+.overlay_info a {
+  display: block;
+  background: lightgreen;
+  text-decoration: none;
+  color: green;
+  padding: 12px 36px 12px 14px;
+  font-size: 20px;
+  font-family: "Jua", sans-serif;
+}
+.img {
+  width: 160px;
+  height: 156px;
+}
+.overlay_info a strong {
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/place_icon.png)
+    no-repeat;
+  padding-left: 27px;
+}
+.overlay_info .kind {
+  width: 100%;
   display: flex;
   justify-content: center;
+}
+.overlay_info .address {
+  font-size: 20px;
+  color: #333;
+  font-family: "Jua", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.box {
+  display: flex;
+}
+.Des {
+  display: flex;
+}
+.footer {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-family: "Jua", sans-serif;
 }
