@@ -13,9 +13,13 @@ export const Img = styled.img`
 `;
 
 export const Map = styled.div`
-  width: 70vw;
-  height: 80vh;
-  border: 2px solid black;
+  width: 30vw;
+  height: 37vh;
+  position: relative;
+  left: 1.5%;
+  bottom: 16%;
+  border: none;
+  box-shadow: 20px 20px 20px #000;
 `;
 
 export const Menu = styled.div`
@@ -24,9 +28,10 @@ export const Menu = styled.div`
 
 export const MapBox = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 85vh;
+  width: 90%;
 `;
 
 export const Input = styled.input`
@@ -51,4 +56,18 @@ export const Mag = styled.img`
   position: absolute;
   right: 34vw;
   cursor: pointer;
+`;
+
+export const Sign = styled.img`
+  width: 630px;
+  position: relative;
+  left: 37%;
+  margin: 0;
+  top: 5%;
+`;
+
+export const BG = styled.div`
+  background-image: url("img/자원.jpg");
+  background-repeat: no-repeat;
+  height: 90vh;
 `;

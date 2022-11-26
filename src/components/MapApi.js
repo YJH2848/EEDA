@@ -14,17 +14,20 @@ function MapApi() {
         /*36.1795543, 128.0756416*/ 35.241141,
         128.899906
       ),
-
+      mapTypeId: kakao.maps.MapTypeId.ROADMAP,
       level: 3,
     };
 
     //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+
+    // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+
     const map = new kakao.maps.Map(container, options);
     markerdata.markerdata.map((el) => {
       const m = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(el.lat, el.lng),
-        clickable: true,
       });
 
       //마커에 인포윈도우 내용 //인포윈도우에서 따로 파일 만드는법 몰라서 이렇게 함
@@ -66,9 +69,12 @@ function MapApi() {
   }, []);
 
   return (
-    <S.MapBox>
-      <S.Map id="map"></S.Map>
-    </S.MapBox>
+    <S.BG>
+      <S.MapBox>
+        <S.Sign src="img/표지판.png"></S.Sign>
+        <S.Map id="map"></S.Map>
+      </S.MapBox>
+    </S.BG>
   );
 }
 
