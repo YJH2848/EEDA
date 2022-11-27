@@ -10,12 +10,9 @@ function MapApi() {
     const container = document.getElementById("map");
 
     const options = {
-      center: new kakao.maps.LatLng(
-        /*36.1795543, 128.0756416*/ 35.241141,
-        128.899906
-      ),
+      center: new kakao.maps.LatLng(36.1795543, 128.0756416),
       mapTypeId: kakao.maps.MapTypeId.ROADMAP,
-      level: 3,
+      level: 13,
     };
 
     //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들

@@ -13,11 +13,11 @@ export const Img = styled.img`
 `;
 
 export const Map = styled.div`
-  width: 30vw;
-  height: 37vh;
+  width: 33vw;
+  height: 38vh;
   position: relative;
-  left: 1.5%;
-  bottom: 16%;
+  right: 2%;
+  bottom: 17%;
   border: none;
   box-shadow: 20px 20px 20px #000;
 `;
@@ -48,6 +48,9 @@ export const SearchBar = styled.div`
   background-color: lightgreen;
   height: 10vh;
   align-items: center;
+  border-width: 0px 0px 5px 0px;
+  border-style: solid;
+  border-color: green;
 `;
 
 export const Mag = styled.img`
@@ -59,7 +62,7 @@ export const Mag = styled.img`
 `;
 
 export const Sign = styled.img`
-  width: 630px;
+  width: 40%;
   position: relative;
   left: 37%;
   margin: 0;
@@ -69,5 +72,36 @@ export const Sign = styled.img`
 export const BG = styled.div`
   background-image: url("img/자원.jpg");
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 89.5vh;
+  width: 100%;
+  background-size: cover;
+`;
+export const MemoBox = styled.div`
+  background-color: #e0e094;
+  position: absolute;
+  bottom: 40%;
+  left: 10%;
+  width: 40vw;
+  height: 40vh;
+`;
+
+export const content = styled.div`
+  display: flex;
+  justify-content: center;
+  font-family: "Jua", sans-serif;
+  font-size: 30px;
+  background-color: white;
+  border: 2px solid black;
+`;
+
+export const triangle = styled.div`
+  width: 0px;
+  height: 0px;
+  border-left: 360px solid #666666;
+  border-top: 180px solid transparent;
+  border-bottom: 180px solid transparent;
+`;
+
+export const Body = styled.div`
+  display: flex;
 `;
