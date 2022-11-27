@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+  scroll: no;
+}
 .overlay_info {
   float: left;
   position: relative;

@@ -13,11 +13,11 @@ export const Img = styled.img`
 `;
 
 export const Map = styled.div`
-  width: 33vw;
-  height: 38vh;
+  width: 30vw;
+  height: 37vh;
   position: relative;
-  right: 2%;
-  bottom: 17%;
+  right: 5%;
+  bottom: 16%;
   border: none;
   box-shadow: 20px 20px 20px #000;
 `;
@@ -62,17 +62,18 @@ export const Mag = styled.img`
 `;
 
 export const Sign = styled.img`
-  width: 40%;
+  width: 32vw;
   position: relative;
-  left: 37%;
+  left: 30%;
   margin: 0;
-  top: 5%;
+  top: 7%;
+  object-fit: cover;
 `;
 
 export const BG = styled.div`
   background-image: url("img/자원.jpg");
   background-repeat: no-repeat;
-  height: 89.5vh;
+  height: 89vh;
   width: 100%;
   background-size: cover;
 `;
@@ -92,16 +93,20 @@ export const content = styled.div`
   font-size: 30px;
   background-color: white;
   border: 2px solid black;
-`;
-
-export const triangle = styled.div`
-  width: 0px;
-  height: 0px;
-  border-left: 360px solid #666666;
-  border-top: 180px solid transparent;
-  border-bottom: 180px solid transparent;
+  border-radius: 10px;
 `;
 
 export const Body = styled.div`
   display: flex;
+`;
+
+export const Sub = styled.div`
+  display: flex;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  justify-content: center;
+  margin-left: 10%;
+  font-family: "Jua", sans-serif;
+  font-size: 30px;
 `;
