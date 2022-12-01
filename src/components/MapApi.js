@@ -21,7 +21,7 @@ function MapApi() {
     // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
 
     const map = new kakao.maps.Map(container, options);
-    markerdata.markerdata.map((el) => {
+    markerdata.markerdata.map(el => {
       const m = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(el.lat, el.lng),
