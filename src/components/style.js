@@ -108,5 +108,5 @@ export const Sub = styled.div`
   justify-content: center;
   margin-left: 10%;
   font-family: "Jua", sans-serif;
-  font-size: 30px;
+  font-size: 2vw;
 `;
