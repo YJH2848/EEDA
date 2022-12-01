@@ -1,5 +1,5 @@
 import MapApi from "./components/MapApi";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 
 import { Reset } from "styled-reset";
 import React from "react";
@@ -9,7 +9,7 @@ function App() {
     <React.Fragment>
       <Reset />
       <div>
-        <Header />
+        {/* <Header /> */}
         <MapApi />
       </div>
     </React.Fragment>

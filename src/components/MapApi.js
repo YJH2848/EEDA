@@ -5,6 +5,9 @@ import "./MapCss.css";
 
 const { kakao } = window;
 function MapApi() {
+  const items = () => {
+    console.log("ㅆ발 이게 안되네");
+  };
   //웹 페이즈를 로딩 시켰을때 가장 먼저 뜨는 지도 위치
   useEffect(() => {
     const container = document.getElementById("map");
@@ -37,9 +40,8 @@ function MapApi() {
 <img src="${el.img}"class="img">
 <div class="kind">
 <span class="address">쓰레기 종류 : ${el.kind}<div class="footer">
-자세히 보기
+<buttonx>자세히 보기</button>
 </div></span>
-
 </div>
 
 </div>
@@ -66,18 +68,16 @@ function MapApi() {
   }, []);
 
   return (
-    <div>
-      <S.MapBox>
-        <S.Memo>
-          <S.title>EEDA 지도</S.title>
-          <br />
-          지역 곳곳에 무단투기 된 쓰레기들의 위치를 알려주고 경각심을 알려주는
-          지도
-        </S.Memo>
-
+    <S.Container>
+      <S.Search>
+        <S.LOGO>EEDA</S.LOGO>
+        <S.Input></S.Input>
+      </S.Search>
+      <S.div>
+        <S.content>EEDA지도</S.content>
         <S.Map id="map"></S.Map>
-      </S.MapBox>
-    </div>
+      </S.div>
+    </S.Container>
   );
 }
 

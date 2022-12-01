@@ -1,55 +1,56 @@
 import styled from "styled-components";
 
-export const Logo = styled.div`
-  margin-left: 10%;
+export const Container = styled.div``;
+
+export const LOGO = styled.div`
+  font-weight: bold;
   color: white;
-  font-size: 2vw;
+  @media screen and (max-width: 800px) {
+    margin-left: 2vw;
+    font-size: xx-large;
+  }
 `;
 
-export const SearchBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: lightgreen;
+export const Search = styled.div`
   height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: lightgreen;
+  @media screen and (max-width: 800px) {
+    justify-content: space-between;
+  } ;
+`;
+
+export const Sub = styled.div`
+  width: 100%;
 `;
 
 export const Input = styled.input`
   width: 30vw;
-  height: 5vh;
-  border-radius: 10px;
+  height: 6vh;
+  @media screen and (max-width: 800px) {
+    margin-right: 2vw;
+    width: 50vw;
+  } ;
 `;
 
-export const Mag = styled.div``;
 export const Map = styled.div`
   width: 65vw;
-  height: 80vh;
-  position: relative;
-  left: 15%;
-  top: 2%;
+  height: 70vh;
+  @media screen and (max-width: 800px) {
+    width: 80vw;
+    height: 60vh;
+  } ;
 `;
-
-export const Menu = styled.div`
-  cursor: pointer;
-`;
-
-export const MapBox = styled.div`
+export const div = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  height: 85vh;
-  width: 90%;
+  height: 90vh;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  } ;
 `;
 
-export const Memo = styled.div`
-  height: 60%;
-  width: 20%;
-  margin-right: -20vw;
-  text-align: center;
-`;
-
-export const title = styled.div`
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 10%;
-`;
+export const content = styled.div``;
