@@ -10,13 +10,12 @@ function MapApi() {
     const container = document.getElementById("map");
 
     const options = {
-      center: new kakao.maps.LatLng(36.1795543, 128.0756416),
+      center: new kakao.maps.LatLng(35.224508, 129.092587),
       mapTypeId: kakao.maps.MapTypeId.ROADMAP,
-      level: 13,
+      level: 3,
     };
 
     //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들
-    var mapTypeControl = new kakao.maps.MapTypeControl();
 
     // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
 
@@ -54,24 +53,31 @@ function MapApi() {
         content: content,
         removable: remove,
       });
-
       //마커를 클릭했을 때 이벤트
       kakao.maps.event.addListener(m, "click", function () {
         // 마커 위에 인포윈도우를 표시합니다
         mLabel.open(map, m);
       });
     });
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPLEFT);
 
     console.log("랜더링되었습니다");
   }, []);
 
   return (
-    <S.BG>
+    <div>
       <S.MapBox>
-        <S.Sign src="img/표지판.png"></S.Sign>
+        <S.Memo>
+          <S.title>EEDA 지도</S.title>
+          <br />
+          지역 곳곳에 무단투기 된 쓰레기들의 위치를 알려주고 경각심을 알려주는
+          지도
+        </S.Memo>
+
         <S.Map id="map"></S.Map>
       </S.MapBox>
-    </S.BG>
+    </div>
   );
 }
 
