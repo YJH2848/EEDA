@@ -5,9 +5,6 @@ import "./MapCss.css";
 
 const { kakao } = window;
 function MapApi() {
-  const items = () => {
-    console.log("ㅆ발 이게 안되네");
-  };
   //웹 페이즈를 로딩 시켰을때 가장 먼저 뜨는 지도 위치
   useEffect(() => {
     const container = document.getElementById("map");
@@ -23,7 +20,7 @@ function MapApi() {
     // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
 
     const map = new kakao.maps.Map(container, options);
-    markerdata.markerdata.map(el => {
+    markerdata.markerdata.map((el) => {
       const m = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(el.lat, el.lng),
@@ -61,8 +58,10 @@ function MapApi() {
         mLabel.open(map, m);
       });
     });
-    var mapTypeControl = new kakao.maps.MapTypeControl();
+    const mapTypeControl = new kakao.maps.MapTypeControl();
     map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPLEFT);
+    const zoomControl = new kakao.maps.ZoomControl();
+    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
     console.log("랜더링되었습니다");
   }, []);
@@ -70,11 +69,12 @@ function MapApi() {
   return (
     <S.Container>
       <S.Search>
-        <S.LOGO>EEDA</S.LOGO>
-        <S.Input></S.Input>
+        <S.LOGO>EEDA 쓰레기 정보 Map</S.LOGO>
       </S.Search>
+      <S.box>
+        <S.Input></S.Input>
+      </S.box>
       <S.div>
-        <S.content>EEDA지도</S.content>
         <S.Map id="map"></S.Map>
       </S.div>
     </S.Container>

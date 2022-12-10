@@ -5,9 +5,33 @@ export const Container = styled.div``;
 export const LOGO = styled.div`
   font-weight: bold;
   color: white;
+  font-size: 2vw;
   @media screen and (max-width: 800px) {
     margin-left: 2vw;
-    font-size: xx-large;
+    font-size: 6vw;
+  }
+`;
+
+export const Sub = styled.div`
+  width: 100%;
+`;
+
+export const box = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 15vh;
+  align-items: center;
+  @media screen and (max-width: 800px) {
+    position: relative;
+    top: 10vh;
+  }
+`;
+
+export const Input = styled.input`
+  width: 30vw;
+  height: 5vh;
+  @media screen and (max-width: 800px) {
+    width: 50vw;
   }
 `;
 
@@ -16,38 +40,23 @@ export const Search = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: lightgreen;
-  @media screen and (max-width: 800px) {
-    justify-content: space-between;
-  } ;
-`;
-
-export const Sub = styled.div`
-  width: 100%;
-`;
-
-export const Input = styled.input`
-  width: 30vw;
-  height: 6vh;
-  @media screen and (max-width: 800px) {
-    margin-right: 2vw;
-    width: 50vw;
-  } ;
+  background: gray;
 `;
 
 export const Map = styled.div`
   width: 65vw;
   height: 70vh;
   @media screen and (max-width: 800px) {
-    width: 80vw;
-    height: 60vh;
+    width: 90vw;
+    height: 40vh;
   } ;
 `;
 export const div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 65vh;
+
   @media screen and (max-width: 800px) {
     flex-direction: column;
   } ;
