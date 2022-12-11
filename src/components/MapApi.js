@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as S from "./style";
 import markerdata from "../MapData/data";
-import "./MapCss.css";
+import "./Overlay.css";
 
 const { kakao } = window;
 function MapApi() {
@@ -20,7 +20,7 @@ function MapApi() {
     // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
 
     const map = new kakao.maps.Map(container, options);
-    markerdata.markerdata.map((el) => {
+    markerdata.markerdata.map(el => {
       const m = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(el.lat, el.lng),
@@ -62,9 +62,24 @@ function MapApi() {
     map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPLEFT);
     const zoomControl = new kakao.maps.ZoomControl();
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
-    console.log("랜더링되었습니다");
   }, []);
+
+  const [search, setSearch] = useState([]);
+  const [none, setNone] = useState([]);
+  const SearchArea = el => {
+    setSearch(el.target.value);
+  };
+  const onClick = () => {
+    markerdata.markerdata.map(el => {
+      if (search === el.title) {
+        console.log(search);
+        setSearch("");
+      } else if (search != el.title) {
+        setSearch("");
+        setNone("없는 지역입니다 다시 입력하십시요");
+      }
+    });
+  };
 
   return (
     <S.Container>
@@ -72,8 +87,14 @@ function MapApi() {
         <S.LOGO>EEDA 쓰레기 정보 Map</S.LOGO>
       </S.Search>
       <S.box>
-        <S.Input></S.Input>
+        <S.Input
+          placeholder="원하는 지역을 입력하세요."
+          value={search}
+          onChange={SearchArea}
+        ></S.Input>
+        <S.Button onClick={onClick}>찾기</S.Button>
       </S.box>
+      <S.Err>{none}</S.Err>
       <S.div>
         <S.Map id="map"></S.Map>
       </S.div>

@@ -19,7 +19,7 @@ export const Sub = styled.div`
 export const box = styled.div`
   display: flex;
   justify-content: center;
-  height: 15vh;
+  height: 10vh;
   align-items: center;
   @media screen and (max-width: 800px) {
     position: relative;
@@ -34,7 +34,12 @@ export const Input = styled.input`
     width: 50vw;
   }
 `;
-
+export const Err = styled.div`
+  display: flex;
+  justify-content: center;
+  color: red;
+`;
+export const Button = styled.button``;
 export const Search = styled.div`
   height: 10vh;
   display: flex;
@@ -55,7 +60,7 @@ export const div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 65vh;
+  height: 75vh;
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
