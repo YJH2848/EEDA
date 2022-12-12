@@ -78,8 +78,8 @@ function MapApi() {
         setNone("");
         if (el.id == 1) {
           console.log(el.lat, el.lng);
-          const moveLatLng = new kakao.mpas.LatLng(el.lat, el.lng);
-          map.panTo(moveLatLng);
+          // const moveLatLng = new kakao.mpas.LatLng(el.lat, el.lng);
+          // map.panTo(moveLatLng);
         }
       } else if (search == "") {
         setNone("보고싶은 지역을 입력해주십시요.");
