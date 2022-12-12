@@ -4,8 +4,10 @@ import markerdata from "../MapData/data";
 import "./Overlay.css";
 
 const { kakao } = window;
+
 function MapApi() {
   //웹 페이즈를 로딩 시켰을때 가장 먼저 뜨는 지도 위치
+
   useEffect(() => {
     const container = document.getElementById("map");
 
@@ -15,11 +17,11 @@ function MapApi() {
       level: 3,
     };
 
+    const map = new kakao.maps.Map(container, options);
     //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들
 
     // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
 
-    const map = new kakao.maps.Map(container, options);
     markerdata.markerdata.map(el => {
       const m = new kakao.maps.Marker({
         map: map,
@@ -69,15 +71,22 @@ function MapApi() {
   const SearchArea = el => {
     setSearch(el.target.value);
   };
+
   const onClick = () => {
     markerdata.markerdata.map(el => {
-      if (search === el.title) {
-        console.log(search);
-        setSearch("");
+      if (search == el.title) {
+        setNone("");
+        if (el.id == 1) {
+          console.log(el.lat, el.lng);
+          const moveLatLng = new kakao.mpas.LatLng(el.lat, el.lng);
+          map.panTo(moveLatLng);
+        }
+      } else if (search == "") {
+        setNone("보고싶은 지역을 입력해주십시요.");
       } else if (search != el.title) {
-        setSearch("");
         setNone("없는 지역입니다 다시 입력하십시요");
       }
+      setSearch("");
     });
   };
 

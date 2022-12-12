@@ -21,10 +21,6 @@ export const box = styled.div`
   justify-content: center;
   height: 10vh;
   align-items: center;
-  @media screen and (max-width: 800px) {
-    position: relative;
-    top: 10vh;
-  }
 `;
 
 export const Input = styled.input`
@@ -38,8 +34,13 @@ export const Err = styled.div`
   display: flex;
   justify-content: center;
   color: red;
+  @media screen and (max-width: 800px) {
+  }
 `;
-export const Button = styled.button``;
+export const Button = styled.button`
+  height: 5.8vh;
+  width: 4vw;
+`;
 export const Search = styled.div`
   height: 10vh;
   display: flex;
@@ -61,10 +62,9 @@ export const div = styled.div`
   justify-content: center;
   align-items: center;
   height: 75vh;
-
   @media screen and (max-width: 800px) {
-    flex-direction: column;
-  } ;
+    height: 60vh;
+  }
 `;
 
 export const content = styled.div``;
