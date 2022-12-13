@@ -17,7 +17,6 @@ function MapApi() {
   const onClick = () => {
     markerdata.markerdata.map(el => {
       if (search == el.title) {
-        setNone("");
         if (el.id == 1) {
           setLat(el.lat);
           setLng(el.lng);
@@ -31,7 +30,6 @@ function MapApi() {
   };
   useEffect(() => {
     const container = document.getElementById("map");
-
     const options = {
       center: new kakao.maps.LatLng(lat, lng),
       mapTypeId: kakao.maps.MapTypeId.ROADMAP,
@@ -45,7 +43,6 @@ function MapApi() {
         position: new kakao.maps.LatLng(el.lat, el.lng),
       });
       //마커에 인포윈도우 내용 //인포윈도우에서 따로 파일 만드는법 몰라서 이렇게 함
-
       const content = `
 <div class="overlay_info">
 <div class="title">
@@ -80,7 +77,7 @@ function MapApi() {
     map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPLEFT);
     const zoomControl = new kakao.maps.ZoomControl();
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-  }, []);
+  }, [lat, lng]);
 
   return (
     <S.Container>
