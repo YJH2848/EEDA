@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./style";
 import markerdata from "../MapData/data";
 import "./Overlay.css";
@@ -7,27 +7,43 @@ const { kakao } = window;
 
 function MapApi() {
   //웹 페이즈를 로딩 시켰을때 가장 먼저 뜨는 지도 위치
-
+  const [search, setSearch] = useState([]);
+  const [none, setNone] = useState([]);
+  const [lat, setLat] = useState(35.224508);
+  const [lng, setLng] = useState(129.092587);
+  const SearchArea = el => {
+    setSearch(el.target.value);
+  };
+  const onClick = () => {
+    markerdata.markerdata.map(el => {
+      if (search == el.title) {
+        setNone("");
+        if (el.id == 1) {
+          setLat(el.lat);
+          setLng(el.lng);
+          console.log(lat, lng);
+        }
+      } else if (search == "") {
+        setNone("보고싶은 지역을 입력해주십시요.");
+      }
+      setSearch("");
+    });
+  };
   useEffect(() => {
     const container = document.getElementById("map");
 
     const options = {
-      center: new kakao.maps.LatLng(35.224508, 129.092587),
+      center: new kakao.maps.LatLng(lat, lng),
       mapTypeId: kakao.maps.MapTypeId.ROADMAP,
       level: 3,
     };
-
     const map = new kakao.maps.Map(container, options);
-    //내가 data.js에서 가져온 데이터들을 지도에 마커로 찍은것들
-
-    // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
 
     markerdata.markerdata.map(el => {
       const m = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(el.lat, el.lng),
       });
-
       //마커에 인포윈도우 내용 //인포윈도우에서 따로 파일 만드는법 몰라서 이렇게 함
 
       const content = `
@@ -65,30 +81,6 @@ function MapApi() {
     const zoomControl = new kakao.maps.ZoomControl();
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
   }, []);
-
-  const [search, setSearch] = useState([]);
-  const [none, setNone] = useState([]);
-  const SearchArea = el => {
-    setSearch(el.target.value);
-  };
-
-  const onClick = () => {
-    markerdata.markerdata.map(el => {
-      if (search == el.title) {
-        setNone("");
-        if (el.id == 1) {
-          console.log(el.lat, el.lng);
-          // const moveLatLng = new kakao.mpas.LatLng(el.lat, el.lng);
-          // map.panTo(moveLatLng);
-        }
-      } else if (search == "") {
-        setNone("보고싶은 지역을 입력해주십시요.");
-      } else if (search != el.title) {
-        setNone("없는 지역입니다 다시 입력하십시요");
-      }
-      setSearch("");
-    });
-  };
 
   return (
     <S.Container>
