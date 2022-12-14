@@ -2,38 +2,67 @@ import { useEffect, useState } from "react";
 import * as S from "./style";
 import markerdata from "../MapData/data";
 import "./Overlay.css";
+import Header from "./Header";
 
 const { kakao } = window;
 
 function MapApi() {
   //웹 페이즈를 로딩 시켰을때 가장 먼저 뜨는 지도 위치
   const [search, setSearch] = useState([]);
-  const [none, setNone] = useState([]);
-  const [lat, setLat] = useState(35.224508);
-  const [lng, setLng] = useState(129.092587);
+  const [none, setNone] = useState(false);
+  const [lat, setLat] = useState(36.70549620983271);
+  const [lng, setLng] = useState(128.1922582067794);
+  const [level, setLevel] = useState(13);
   const SearchArea = el => {
     setSearch(el.target.value);
   };
+
+  //나중에 props로 check.js로 옮길 예정
+  const keyPress = e => {
+    if (e.key === "Enter") {
+      markerdata.markerdata.map(el => {
+        console.log(search);
+        if (el.id == 1) {
+          if (search == el.title) {
+            setLat(el.lat);
+            setLng(el.lng);
+            setNone("");
+            setLevel(3);
+          } else if (search == "") {
+            setNone("보고싶은 지역을 입력해주십시요.");
+          }
+        }
+
+        setSearch("");
+      });
+    }
+  };
+
+  //나중에 props로 check.js로 옮길 예정
   const onClick = () => {
     markerdata.markerdata.map(el => {
-      if (search == el.title) {
-        if (el.id == 1) {
+      console.log(search);
+      if (el.id == 1) {
+        if (search == el.title) {
           setLat(el.lat);
           setLng(el.lng);
-          console.log(lat, lng);
+          setNone("");
+          setLevel(3);
+        } else if (search == "") {
+          setNone("보고싶은 지역을 입력해주십시요.");
         }
-      } else if (search == "") {
-        setNone("보고싶은 지역을 입력해주십시요.");
       }
+
       setSearch("");
     });
   };
+
   useEffect(() => {
     const container = document.getElementById("map");
     const options = {
       center: new kakao.maps.LatLng(lat, lng),
       mapTypeId: kakao.maps.MapTypeId.ROADMAP,
-      level: 3,
+      level: `${level}`,
     };
     const map = new kakao.maps.Map(container, options);
 
@@ -78,21 +107,23 @@ function MapApi() {
     const zoomControl = new kakao.maps.ZoomControl();
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
   }, [lat, lng]);
-
   return (
     <S.Container>
-      <S.Search>
-        <S.LOGO>EEDA 쓰레기 정보 Map</S.LOGO>
-      </S.Search>
+      <Header />
       <S.box>
-        <S.Input
-          placeholder="원하는 지역을 입력하세요."
-          value={search}
-          onChange={SearchArea}
-        ></S.Input>
-        <S.Button onClick={onClick}>찾기</S.Button>
+        <S.Add>
+          <S.Input
+            onKeyPress={keyPress}
+            placeholder="원하는 지역을 입력하세요."
+            value={search}
+            onChange={SearchArea}
+          ></S.Input>
+          <S.Button onClick={onClick}>찾기</S.Button>
+        </S.Add>
       </S.box>
+
       <S.Err>{none}</S.Err>
+
       <S.div>
         <S.Map id="map"></S.Map>
       </S.div>
