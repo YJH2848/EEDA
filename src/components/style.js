@@ -119,14 +119,11 @@ export const Home = styled.div`
   }
 `;
 
-export const Find = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-`;
+export const Find = styled.div``;
 
 export const Express = styled.button`
   height: 5vh;
   width: 10vw;
 `;
+
+export const Props = styled.div``;

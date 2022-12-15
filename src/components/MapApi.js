@@ -13,10 +13,16 @@ function MapApi() {
   const [lat, setLat] = useState(36.70549620983271);
   const [lng, setLng] = useState(128.1922582067794);
   const [level, setLevel] = useState(13);
+  const [look, setLook] = useState(false);
+  const chg = () => {
+    setLook(look => !look);
+    if (look == true) {
+      window.location.reload();
+    }
+  };
   const SearchArea = el => {
     setSearch(el.target.value);
   };
-
   //나중에 props로 check.js로 옮길 예정
   const keyPress = e => {
     if (e.key === "Enter") {
@@ -122,10 +128,19 @@ function MapApi() {
         </S.Add>
       </S.box>
 
+      <button onClick={chg}>변경</button>
       <S.Err>{none}</S.Err>
 
       <S.div>
-        <S.Map id="map"></S.Map>
+        {look ? (
+          <div>
+            {markerdata.markerdata.map(el => (
+              <S.Props>{el.title}</S.Props>
+            ))}
+          </div>
+        ) : (
+          <S.Map id="map"></S.Map>
+        )}
       </S.div>
     </S.Container>
   );
