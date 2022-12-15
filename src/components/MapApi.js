@@ -14,8 +14,11 @@ function MapApi() {
   const [lng, setLng] = useState(128.1922582067794);
   const [level, setLevel] = useState(13);
   const [look, setLook] = useState(false);
+  const [btn, setBtn] = useState("쓰레기 데이터 보기");
+
   const chg = () => {
     setLook(look => !look);
+    setBtn("지도 보기");
     if (look == true) {
       window.location.reload();
     }
@@ -128,7 +131,7 @@ function MapApi() {
         </S.Add>
       </S.box>
 
-      <button onClick={chg}>변경</button>
+      <button onClick={chg}>{btn}</button>
       <S.Err>{none}</S.Err>
 
       <S.div>
