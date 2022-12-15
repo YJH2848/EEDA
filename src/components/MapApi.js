@@ -135,7 +135,11 @@ function MapApi() {
         {look ? (
           <div>
             {markerdata.markerdata.map(el => (
-              <S.Props>{el.title}</S.Props>
+              <S.Props>
+                <S.F>{el.title}</S.F>
+                <S.K>{el.kind}</S.K>
+                <br />
+              </S.Props>
             ))}
           </div>
         ) : (

@@ -126,4 +126,14 @@ export const Express = styled.button`
   width: 10vw;
 `;
 
-export const Props = styled.div``;
+export const Props = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid blue;
+  width: 70vw;
+  margin-left: 200px;
+`;
+
+export const F = styled.div``;
+
+export const K = styled.div``;
